@@ -3,10 +3,12 @@ module.exports = {
   description: 'Note paper',
   themeConfig: {
     navbar: false,
-    sidebar: false
-    // sidebar: [
-    //   '/contents/a',
-    //   '/contents/b',
-    // ]
+    sidebar: [
+      // '',
+      '/front-end/web-type',
+      '/front-end/web-modular',
+      '/front-end/web-js-framework',
+      '/front-end/web-bundler',
+    ]
   }
 }
