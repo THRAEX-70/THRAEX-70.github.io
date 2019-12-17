@@ -70,6 +70,10 @@ module.exports = func
 // or
 // exports指向module.exports，即exports === module.exports
 // exports = func
+
+// index.js
+var ma = require('module_a')
+console.log(ma.func({}))
 ```
 
 ## AMD
@@ -121,8 +125,107 @@ require(['module_a'], function(a) {
 
 [**Common Module Definition, 通用模块加载规范**](https://github.com/seajs/seajs/issues/242)。一般也是用在浏览器端。与`CommonJS`规范保持了很大的兼容性。
 
-由国内**玉伯**大神在开发[SeaJS](https://seajs.github.io/seajs/docs/#docs)的时候提出来的
+由国内**玉伯**大神在开发[SeaJS](https://seajs.github.io/seajs/docs/#docs)的时候提出来的。
+
+`CMD`与`AMD`挺相近，二者区别如下：
+- 对于依赖的模块`CMD`是延迟执行，而`AMD`是提前执行（不过 RequireJS 从 2.0 开始，也改成可以延迟执行。 ）
+
+- `CMD`推崇 **as lazy as possible（依赖就近）**，`AMD`推崇依赖前置。
+
+- `AMD`的API默认是一个当多个用，`CMD`严格的区分推崇职责单一，其每个`API`都简单纯粹。例如：`AMD`里`require`分全局的和局部的。`CMD`里面没有全局的`require`，提供`seajs.use()`来实现模块系统的加载启动。
+
+``` js
+// module_a.js
+define(function(require, exports, module) {
+    console.log('module_a.js执行');
+    console.log(require);
+    console.log(exports);
+    console.log(module);
+});
+
+// module_b.js
+define(function(require, module, exports) {
+    console.log('module_b.js执行');
+    console.log(require);
+    console.log(exports);
+    console.log(module);
+});
+
+// index.js
+define(function(require) {
+    var a = require('module_a');
+    var b = require('module_b');
+    console.log(a);
+    console.log(b);
+});
+```
 
 ## UMD
 
-Universal Module Definition, 通用模块规范
+**Universal Module Definition, 通用模块规范**
+
+因为`AMD`，`CommonJS`规范是两种不一致的规范，虽然他们应用的场景也不太一致，但是人们仍然是期望有一种统一的规范来支持这两种规范。于是，`UMD`规范诞生了，以解决跨平台问题。
+
+客观来说，这个`UMD`规范看起来的确没有`AMD`和`CommonJS`规范简约。但是它支持`AMD`和`CommonJS`规范，同时还支持古老的全局模块模式。
+
+`UMD`先判断是否支持`Node.js`的模块（`exports`）是否存在，存在则使用`Node.js`模块模式。再判断是否支持`AMD`（`define`是否存在），存在则使用`AMD`方式加载模块。
+
+``` js
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+      // AMD
+      define(['jquery'], factory);
+  } else if (typeof exports === 'object') {
+      // Node, CommonJS-like
+      module.exports = factory(require('jquery'));
+  } else {
+      // Browser globals (root is window)
+      root.returnExports = factory(root.jQuery);
+  }
+}(this, function ($) {
+  function myFunc(){};
+
+  return myFunc;
+}));
+```
+
+## ES6 Module
+
+2015年6月，ES2015（即ECMAScript 6、ES6）正式发布。ES2015是该语言的一个显著更新，也是自2009年ES5标准确定后的第一个重大更新。
+
+**虽然ES2015提出了许多令人激动的新特性，但由于目前JavaScript的运行环境众多，对ECMAScript标准的支持程度也不一样。**
+
+一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。
+
+- `export`: 命令用于规定模块的对外接口。
+- `import`: 命令用于输入其他模块提供的功能。
+
+ES6模块的设计思想是尽量的静态化，**使得编译时就能确定模块的依赖关系，以及输入和输出的变量**。
+
+``` js
+// module_a.js
+export function func1() {
+  return {}
+}
+
+export function func2(params) {
+  console.log(params)
+}
+
+// module_b.js
+export {
+  func1: function() {
+    // ....
+  },
+  func2: function() {
+    // ....
+  }
+}
+
+// index.js
+import { func1, func2 } from 'module_a'
+// or
+// import * as ma from 'module_a'
+
+import mb from 'module_b'
+```
