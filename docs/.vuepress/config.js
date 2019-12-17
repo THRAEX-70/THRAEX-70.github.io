@@ -8,7 +8,9 @@ module.exports = {
       '/front-end/web-type',
       '/front-end/web-modular',
       '/front-end/web-js-framework',
-      '/front-end/web-bundler',
+      '/front-end/web-dependencies',
+      // '/front-end/web-bundler',
+      ['https://www.webpackjs.com', '打包']
     ]
   }
 }
