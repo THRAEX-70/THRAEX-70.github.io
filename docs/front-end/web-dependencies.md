@@ -7,7 +7,7 @@ date: 2019-12-17 14:00:00
 
 ## 部分依赖
 
-- `axios`
+- `axios`: `http`请求库, 可以用在浏览器和 node.js 中
 
 - `vue`: 核心库, 只关注视图层
 
@@ -22,6 +22,8 @@ date: 2019-12-17 14:00:00
 - `babel*`: `js`编译器, 主要用于将ES6+的代码转为向后兼容的`js`语法(**语法转换**)
 
 - `css-loader`: [CSS 相关](https://cli.vuejs.org/zh/guide/css.html)
+  - [浅谈css预处理器，Sass、Less和Stylus](https://zhuanlan.zhihu.com/p/23382462)
+  - [浅谈 CSS 预处理器（一）：为什么要使用预处理器？](https://github.com/cssmagic/blog/issues/73)
 
 - `eslint`: 属于一种QA工具，是一个ECMAScript/JavaScript语法规则和代码风格的检查工具，可以用来保证写出语法正确、风格统一的代码
 

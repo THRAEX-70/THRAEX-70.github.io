@@ -10,7 +10,8 @@ module.exports = {
       '/front-end/web-js-framework',
       '/front-end/web-dependencies',
       // '/front-end/web-bundler',
-      ['https://www.webpackjs.com', '打包']
+      ['https://www.webpackjs.com', '打包'],
+      '/front-end/web-deploy'
     ]
   }
 }
