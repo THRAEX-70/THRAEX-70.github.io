@@ -1,0 +1,17 @@
+{
+  "name": "note-paper",
+  "version": "2.0.0",
+  "description": "Note paper",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "main": "index.js",
+  "repository": "git@git.dev.tencent.com:THRAEX/note-paper.git",
+  "author": "鬼王 <THRAEX@aliyun.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "vuepress": "^1.2.0"
+  }
+}
