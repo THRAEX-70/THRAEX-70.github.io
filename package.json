@@ -8,6 +8,7 @@
   },
   "main": "index.js",
   "repository": "git@git.dev.tencent.com:THRAEX/note-paper.git",
+  "homepage": "https://o70.github.io/note-paper",
   "author": "鬼王 <THRAEX@aliyun.com>",
   "license": "MIT",
   "private": true,
