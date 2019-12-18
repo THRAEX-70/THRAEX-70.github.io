@@ -15,10 +15,10 @@ jobs:
 
     # https://github.com/marketplace/actions/deploy-to-github-pages
     - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
+      uses: JamesIves/github-pages-deploy-action@master
       with:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BASE_BRANCH: dev
         BRANCH: gh-pages
-        FOLDER: docs/.vuepress/dist
-        BUILD_SCRIPT: yarn docs:build 
+        FOLDER: ./docs/.vuepress/dist
+        BUILD_SCRIPT: yarn docs:build
