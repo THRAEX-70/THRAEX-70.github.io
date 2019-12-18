@@ -32,3 +32,12 @@ jobs:
         BASE_BRANCH: dev
         BRANCH: gh-pages
         FOLDER: docs/.vuepress/dist
+
+    - name: Deploy to Root
+      run: |
+        git clone git@github.com:O70/O70.github.io.git pages
+        cd pages
+        git remote set-url --add origin git@gitee.com:Guiwang/Guiwang.git
+        git remote set-url --add origin git@git.dev.tencent.com:THRAEX/THRAEX.git
+        cp -r docs/.vuepress/dist .
+        git push origin master
