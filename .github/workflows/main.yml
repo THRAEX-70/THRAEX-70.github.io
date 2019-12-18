@@ -14,8 +14,10 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: Build
-      run: yarn docs:build
-      
+      run: |
+        yarn add -D vuepress
+        yarn docs:build
+
     # https://github.com/marketplace/actions/deploy-to-github-pages
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
