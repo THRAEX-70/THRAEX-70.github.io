@@ -1,4 +1,4 @@
-name: Build and Deploy to GitHub Pages
+name: Pages
 
 on:
   push:
@@ -27,7 +27,6 @@ jobs:
     # https://github.com/marketplace/actions/deploy-to-github-pages
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
-      needs: Build
       with:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BASE_BRANCH: dev
