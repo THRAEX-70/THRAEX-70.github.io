@@ -13,12 +13,15 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - name: Build
+      run: yarn docs:build
+      
     # https://github.com/marketplace/actions/deploy-to-github-pages
-    - name: Build and Deploy
+    - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BASE_BRANCH: dev
         BRANCH: gh-pages
         FOLDER: docs/.vuepress/dist
-        BUILD_SCRIPT: npm run docs:build
+        # BUILD_SCRIPT: yarn docs:build
