@@ -20,5 +20,5 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BASE_BRANCH: dev
         BRANCH: gh-pages
-        FOLDER: ./docs/.vuepress/dist
+        FOLDER: docs/.vuepress/dist
         BUILD_SCRIPT: yarn docs:build
