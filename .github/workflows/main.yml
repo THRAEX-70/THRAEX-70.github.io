@@ -21,4 +21,4 @@ jobs:
         BASE_BRANCH: dev
         BRANCH: gh-pages
         FOLDER: docs/.vuepress/dist
-        BUILD_SCRIPT: yarn docs:build
+        BUILD_SCRIPT: npm run docs:build
