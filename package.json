@@ -6,9 +6,8 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
-  "main": "index.js",
-  "repository": "git@git.dev.tencent.com:THRAEX/note-paper.git",
-  "homepage": "https://o70.github.io/note-paper",
+  "repository": "git@github.com:THRAEX-70/THRAEX-70.github.io.git",
+  "homepage": "https://THRAEX-70.github.io",
   "author": "鬼王 <THRAEX@aliyun.com>",
   "license": "MIT",
   "private": true,
