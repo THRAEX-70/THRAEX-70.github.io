@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/note-paper/',
+  base: '/',
   description: 'Note paper',
   themeConfig: {
     navbar: false,
