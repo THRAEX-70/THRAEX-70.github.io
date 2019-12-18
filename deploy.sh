@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 # Deploy to Root
+# Deprecated
 
 set -e
 
