@@ -7,7 +7,15 @@ date: 2019-12-17 14:00:00
 
 - npx
 ``` sh
-$ npx http-server 
+$ npx http-server
+```
+
+- python
+``` sh
+$ python -m SimpleHTTPServer
 ```
 
 - python3
+``` sh
+$ python3 -m http.server -d ./dist
+```
