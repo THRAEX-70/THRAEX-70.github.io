@@ -32,10 +32,3 @@ jobs:
         BASE_BRANCH: dev
         BRANCH: gh-pages
         FOLDER: docs/.vuepress/dist
-
-    - name: Deploy to Root
-      run: |
-        git init
-        git add -A
-        git commit -m 'deploy'
-        git push -f https://github.com/O70/O70.github.io.git master:gh-pages
